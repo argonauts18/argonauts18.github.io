@@ -1,0 +1,3 @@
+# Keep the CV out of the GitHub Pages site until it is ready to be shared.
+exclude:
+  - assets/Kyle_Stein_CV.pdf
