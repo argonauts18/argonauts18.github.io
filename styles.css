@@ -96,10 +96,10 @@ section { padding: 72px 0; }
 .featured-research { background: var(--surface); border-block: 1px solid var(--line); }
 .paper-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: .88rem; }
 .paper-feature h2 { max-width: 1000px; margin: 22px 0 14px; font-size: clamp(1.65rem, 3.2vw, 2.65rem); line-height: 1.18; letter-spacing: -.035em; }
-.paper-feature h2 a, .pub-with-figure h3 a { color: var(--text); }
-.paper-feature h2 a:hover, .pub-with-figure h3 a:hover { color: var(--accent); }
+.paper-feature h2 a, .pub h3 a { color: var(--text); }
+.paper-feature h2 a:hover, .pub h3 a:hover { color: var(--accent); }
 .paper-authors { margin: 0; color: var(--muted); font-size: .96rem; }
-.paper-authors strong, .pub-with-figure p strong { color: var(--text); font-weight: 650; }
+.paper-authors strong, .pub p strong { color: var(--text); font-weight: 650; }
 .paper-summary, .pub .paper-summary { margin: 16px 0 0; max-width: 850px; color: #45546a; font-size: 1.06rem; line-height: 1.65; }
 .paper-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
 .paper-links a { display: inline-flex; align-items: center; gap: 14px; padding: 9px 15px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: .88rem; font-weight: 650; }
