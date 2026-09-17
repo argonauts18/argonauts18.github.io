@@ -152,13 +152,6 @@ section { padding: 72px 0; }
 .figure-dialog > a { display: inline-block; margin-top: 16px; font-size: .9rem; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 
-.timeline { display: grid; gap: 16px; }
-.timeline-item { display: grid; grid-template-columns: 190px 1fr; gap: 24px; border-top: 1px solid var(--line); padding-top: 20px; }
-.timeline-item:first-child { border-top: 0; padding-top: 0; }
-.timeline-date { color: var(--muted); font-weight: 650; }
-.timeline-item h3 { margin: 0; }
-.timeline-item p { color: var(--muted); margin: 4px 0 0; }
-
 .page-hero { padding: 64px 0 34px; }
 .dissertation-head { margin-bottom: 20px; }
 .section-head .dissertation-title { max-width: 820px; margin-top: 7px; font-size: clamp(1.05rem, 1.55vw, 1.35rem); line-height: 1.38; letter-spacing: -.012em; }
@@ -176,7 +169,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
   .hero-grid { grid-template-columns: 1fr; gap: 38px; }
   .profile-card { max-width: 460px; }
   .grid-3 { grid-template-columns: 1fr; }
-  .timeline-item, .pub { grid-template-columns: 1fr; gap: 4px; }
+  .pub { grid-template-columns: 1fr; gap: 4px; }
   .section-head { align-items: start; flex-direction: column; }
 }
 
