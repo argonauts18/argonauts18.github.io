@@ -48,11 +48,34 @@ img { max-width: 100%; display: block; }
 .menu-btn { display: none; border: 0; background: transparent; font-size: 1.35rem; }
 
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 92px 0 70px;
   background:
     radial-gradient(circle at 85% 20%, rgba(36,87,214,.12), transparent 30%),
     linear-gradient(180deg, #fbfcff, var(--bg));
 }
+.hero-motion { position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .72; }
+.hero-motion::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(36,87,214,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(36,87,214,.035) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(90deg, transparent, black 22%, black 78%, transparent); }
+.motion-orbit { position: absolute; display: block; border: 1px solid rgba(36,87,214,.16); border-radius: 50%; transform: rotate(-18deg); }
+.motion-orbit-one { width: min(72vw, 920px); height: min(26vw, 320px); right: -8vw; top: 18%; animation: orbit-drift 18s ease-in-out infinite alternate; }
+.motion-orbit-two { width: min(58vw, 720px); height: min(21vw, 250px); right: 3vw; top: 34%; border-color: rgba(64,132,239,.12); transform: rotate(22deg); animation: orbit-drift-two 24s ease-in-out infinite alternate; }
+.motion-line { position: absolute; display: block; height: 1px; transform-origin: left center; background: linear-gradient(90deg, transparent, rgba(36,87,214,.28), transparent); }
+.motion-line-one { width: min(48vw, 620px); right: 1%; top: 38%; transform: rotate(-19deg); }
+.motion-line-two { width: min(42vw, 520px); right: 8%; top: 62%; transform: rotate(15deg); background: linear-gradient(90deg, transparent, rgba(50,155,205,.2), transparent); }
+.motion-node { position: absolute; display: block; width: 7px; height: 7px; border-radius: 50%; background: #6e9df1; box-shadow: 0 0 0 5px rgba(110,157,241,.12), 0 0 22px rgba(36,87,214,.5); animation: node-breathe 4.5s ease-in-out infinite; }
+.motion-node-one { right: 26%; top: 23%; }
+.motion-node-two { right: 13%; top: 42%; animation-delay: -1.2s; }
+.motion-node-three { right: 34%; top: 59%; animation-delay: -2.6s; }
+.motion-node-four { right: 8%; top: 72%; animation-delay: -3.5s; }
+.motion-pulse { position: absolute; display: block; width: 6px; height: 6px; border-radius: 50%; background: #4a86e9; box-shadow: 0 0 0 0 rgba(74,134,233,.55); animation: pulse-travel 7s linear infinite; }
+.motion-pulse-one { left: 76%; top: 35%; }
+.motion-pulse-two { left: 67%; top: 65%; animation-delay: -3.5s; }
+@keyframes orbit-drift { from { transform: rotate(-18deg) translate3d(-10px, 3px, 0); } to { transform: rotate(-14deg) translate3d(16px, -8px, 0); } }
+@keyframes orbit-drift-two { from { transform: rotate(22deg) translate3d(12px, 0, 0); } to { transform: rotate(17deg) translate3d(-16px, 9px, 0); } }
+@keyframes node-breathe { 0%, 100% { opacity: .55; transform: scale(.9); } 50% { opacity: 1; transform: scale(1.25); } }
+@keyframes pulse-travel { 0% { opacity: 0; transform: translateX(-90px) scale(.7); } 18%, 78% { opacity: .8; } 100% { opacity: 0; transform: translateX(170px) scale(1); } }
 .hero-grid { display: grid; grid-template-columns: 1.45fr .75fr; gap: 70px; align-items: center; }
 .eyebrow { text-transform: uppercase; letter-spacing: .13em; font-size: .78rem; font-weight: 800; color: var(--accent); }
 h1 { font-size: clamp(2.7rem, 7vw, 5.6rem); line-height: .98; letter-spacing: -.055em; margin: 14px 0 20px; }
@@ -132,6 +155,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
 .timeline-item p { color: var(--muted); margin: 4px 0 0; }
 
 .page-hero { padding: 64px 0 34px; }
+.section-head .dissertation-title { max-width: 1000px; font-size: clamp(1.35rem, 2.5vw, 2.15rem); line-height: 1.2; letter-spacing: -.025em; }
+.dissertation-link { margin-top: 20px; }
 .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4.4rem); margin-bottom: 16px; }
 .page-hero p { max-width: 760px; font-size: 1.1rem; color: var(--muted); }
 .filter-note { background: var(--soft); border-radius: 14px; padding: 16px 18px; color: #41516c; margin-bottom: 28px; }
@@ -155,4 +180,11 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
   .nav-links.open { display: flex; }
   .hero { padding-top: 60px; }
   section { padding: 54px 0; }
+  .hero-motion { opacity: .48; }
+  .motion-orbit-one { width: 110vw; right: -45vw; }
+  .motion-orbit-two { width: 92vw; right: -22vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-orbit, .motion-node, .motion-pulse { animation: none; }
 }
